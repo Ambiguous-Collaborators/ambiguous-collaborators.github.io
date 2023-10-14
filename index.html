@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ambiguous Collaborators Working Group</title>
+    <title>ACWG</title>
 
     <style>
         body {
@@ -14,6 +14,8 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            padding-left: 20px;
+            padding-right: 20px;
         }
    
         /* CSS */
@@ -65,17 +67,37 @@
             font-size: x-large;
         }
 
+        h1 .small-text {
+            font-size: small;
+        }
+
+
         .center-text {
             text-align: center;
         } 
+
+        .image-container {
+            display: flex;
+            justify-content: center; /* horizontally centers the image */
+            align-items: center;     /* vertically centers the image (if the container has a height) */ 
+        }
+
     </style>
 </head>
 
 
 <body>
-    <h1>Ambiguous Collaborators Working Group</h1>
+    <div class="image-container">
+        <img src="assets/acwg.png" style="width: 25%" alt="Ambiguous Collaboration Working Group">
+    </div>
+    &nbsp;
 
-    <p class="center-text">We're an <a href="https://hai.stanford.edu/research/student-affinity-groups">HAI</a> sponsored student group interested in the frontier of interaction design, audiovisual performance, and computational aesthetics.</p>
+    <h1>
+        <span class="small-text">The</span> Ambiguous Collaboration Working Group
+    </h1>
+    
+
+    <p class="center-text">We're an <a href="https://hai.stanford.edu/research/student-affinity-groups">HAI</a> sponsored group interested in the frontier of interaction design, audiovisual performance, and computational aesthetics.</p>
     &nbsp;
     
     <div class="buttons">
