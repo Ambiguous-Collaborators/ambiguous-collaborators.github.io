@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Last Summer in Shinjuku</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="generic.html">Little Guy</a></li>
+							<li><a href="generic.html">Last Summer in Shinjuku</a></li>
+							<li><a href="generic.html">People Watching</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Last Summer in Shinjuku</h1>
+							<!-- <span class="image main"><img src="images/pic13.jpg" alt="" /></span> -->
+							 <h2>Overview</h2>
+							 <p>	
+								<em>Last Summer in Shinjuku</em> is an interactive multimedia installation piece presented at Stanford University’s Center for Computer Research in Music & Acoustics (CCRMA) June 9-12, 2024. The piece makes use of sounds and images captured during everyday life in Tokyo, Japan. Conceptually, the piece explores the way passive interaction with a environment modulates our experience of it. In particular, it aims to 1) create an immersive space that invites peaceful contemplation, and 2) encourage visitors to transform the sounds and images present via their exploration of the space. The piece is meant to empower visitors to bring out unexpected beauty from what might normally be considered ambient background noise.
+							 </p>
+							 <h2>Source Material</h2>
+							 <p>
+								This piece is as much about the source material as it is about the physical design and means of interaction. The sounds and images were taken during my time living Tokyo in the summer of 2023. Both audio recordings and photos were taken as documentation of my daily life, captured on my iPhone as I walked through supermarkets, alleyways, parks, and convenience stores. They are raw, unpolished, and noisy. Importantly, the sound recordings generally do not aim to capture some event or subject of note–they each document the sonic backdrop of everyday living. And yet, they contain a quiet, subtle perceptual richness that I wanted to build upon. Here are some examples of the source audio and images:
+							 </p>
+							 <!-- [embed 3-4 audio files, photos] -->
+							 <h2>Physical Design</h2>
+							 <p>
+								The physical structure of the installation was designed to accomplish several goals. Since the source material was captured as I walked around the city, I wanted to create a space that people could walk around in themselves. Critically, I wanted the act of walking around and exploring the space itself to be the means of interaction that affected the sonic landscape. The installation itself was set up in CCRMA’s Listening Room–an acoustically treated 3D studio equipped with speakers coming from many angles (8 surround the listening area at ear level, 7 hang from the ceiling, and 7 lie below an acoustically transparent floor). This allowed for spatialized audio playback that helped create an immersive environment. There was also a projector showing audioreactive visuals on a large screen. 
+							 </p>
+							 <p>
+								There are two set elements that I designed for the space: “floor plates” and a “rock bed”. Both evoke an outdoor, urban setting, and are sensitive to visitors walking over them. 
+							 </p>
+							 <p>
+								The “rock bed” is a wooden trough filled with smooth, black landscaping pebbles. Underneath the raised floor that the pebbles sit on are 3 contact microphones that pick up the sounds of footsteps and crunching, rolling rocks as people walk across the trough. The contact microphones were arranged in a line so that the directions that visitors walked across the trough could be spatially represented during playback using the room’s speaker array. The rock bed sent 3 channels of audio to my computer, where it was further processed in Max.
+							 </p>
+							 <!-- [embed image of trough] -->
+							  <p>
+								The “floor plates” are a set of six custom-built plates that are sensitive to the weight exerted when visitors walked on top of them. These six plates were arranged in a circle around the rock bed. Each plate consisted of two 2’x2’ wooden squares with an arrangement of four load cells sandwiched in-between. Some additional cardboard supports were inserted to more evenly distribute the force on the plates. The load cells convert the mechanical force of visitors’ body weight on top of them into digital values which could be read by a microcontroller. The plates top face was covered in fake grass to further invite people to walk and stand on top of them. Each of the six plates sent a single digital readout value of the force exerted on it, and this was sent to a Teensy microcontroller, and after some additional filtering and processing, sent to Max as MIDI CC values. 
+							  </p>
+							  <!-- [embed image of plate design] -->
+							   <h2>Interaction Design</h2>
+							   <p>
+								The overall interaction scheme of the installation is as follows: Without any visitor interaction, the environmental sound recordings are played back through the speaker array (mostly) unprocessed. When visitors step on one of the floor plates, the sounds are transformed into layers of musical instruments and other textures. The magnitude of the force exerted on the plates drives the depth of this transformation and modulates several parameters in specific parts of the audio processing chain. Each floor plate triggers a different source recording, along with a different processing chain tailored to that recording. 
+							   </p>
+							   <p>
+								Central to the audio transformations is the use of a “neural timbre transfer” plugin–this plugin uses AI models trained on different audio datasets (instruments, speech, music, environmental sounds) to transform input audio in real-time. Most straightforward use cases may transform, say, a human voice into a violin. However, when these AI models are used to transform ambient recordings of cicadas in the park into, say, latin percussion instruments, the result is not as recognizable–instead producing a new sort of sonic texture that is hard to describe. Importantly, since this plugin performs this processing in real-time, it allowed the visitor interactions via the plates to directly and spontaneously affect the way this timbre transfer was applied.
+							   </p>
+							   <p>
+								The audio processing chain was built primarily around this AI-assisted textural shaping, with some additional filtering, time-based effects (reverb, delay), and saturation.  Examples of the dry sound recordings being transformed can be found below:
+							   </p>
+							   <!-- [embed audio of 2-3 wet-dry examples] -->
+								<p>
+									With this setup, visitors could walk around, stand on top of the floor plates, and shift their weight–this resulted in an continuously evolving sonic texture that swayed between realistic environmental sounds to rich, musical textures. Additionally, direct sound of footsteps and rocks from visitors walking on the central rock bed were inserted into the sonic landscape, further grounding the connection between visitors’ traversal in the space and the resulting audio. 
+								</p>
+								<p>
+									Finally, the accompanying visuals projected on the wall served both to further immerse visitors in the environments they were hearing, as well as to reinforce the way their interactions affected the space. The visuals consisted of manipulated and animated photos from the same environments the sounds were recorded in. When the unprocessed sounds were being played, the accompanying visuals were monochrome, subtly pulsing in time with the audio. When the audio becomes transformed by visitors interacting with the plates and rocks, the visuals react by becoming distorted, recombined, saturated, and holographic–their motion reacting to the sounds in a more exaggerated way. This allowed visitors to perceive their impact on the audio visually. 
+								</p>
+								<p>
+									All audio and visual processing was done in Max/MSP/Jitter. Audio processing also made use of the “neutone” real-time timbre transfer plugin developed by Qosmo. 
+								</p>
+								<!-- <h2>Gallery</h2> -->
+								<!-- [embed images of finished installation, video demo] -->
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
